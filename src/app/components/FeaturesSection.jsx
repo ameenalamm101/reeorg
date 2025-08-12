@@ -1,68 +1,112 @@
 "use client";
 
 export default function FeaturesSection() {
+  const features = [
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
+      title: "Real-Time Analytics",
+      description: "Get instant insights into your workforce with AI-powered analytics and predictive modeling.",
+      color: "blue",
+      features: ["Live performance tracking", "Predictive risk assessment", "Custom KPI dashboards"]
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        </svg>
+      ),
+      title: "Smart Org Design",
+      description: "Visualize and optimize your organizational structure with intelligent recommendations.",
+      color: "indigo",
+      features: ["Interactive org charts", "Role optimization", "Team composition analysis"]
+    },
+    {
+      icon: (
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      title: "AI-Powered Insights",
+      description: "Leverage machine learning to identify patterns, risks, and opportunities in your workforce.",
+      color: "purple",
+      features: ["Automated risk detection", "Skills gap analysis", "Performance predictions"]
+    }
+  ];
+
   return (
-    <section id="features" className="py-20 bg-white">
+    <section id="features" className="py-24 bg-gradient-to-b from-white to-blue-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Comprehensive Skills Intelligence Platform
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-6">
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Powerful Features
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <span className="text-gray-900">Everything You Need for</span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Workforce Intelligence
+            </span>
           </h2>
-          <p className="text-lg text-gray-600">
-            ReeOrg delivers powerful insights to help you understand and optimize your organization's skills.
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Transform your organization with comprehensive tools designed for the modern workplace
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md">
-            <div className="bg-blue-100 text-blue-600 p-3 rounded-lg inline-block mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-                <line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line>
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold mb-3">Skills Intelligence</h3>
-            <p className="text-gray-600 mb-4">
-              Gain deep insights into your workforce's capabilities with AI-powered skills profiling.
-            </p>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start"><span className="text-blue-600 mr-2">•</span>User skill profiling</li>
-              <li className="flex items-start"><span className="text-blue-600 mr-2">•</span>Skill gap analysis</li>
-              <li className="flex items-start"><span className="text-blue-600 mr-2">•</span>Learning recommendations</li>
-            </ul>
-          </div>
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2"
+            >
+              {/* Background gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br from-${feature.color}-50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              
+              <div className="relative z-10">
+                {/* Icon */}
+                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-${feature.color}-500 to-${feature.color}-600 text-white rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  {feature.icon}
+                </div>
 
-          <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md">
-            <div className="bg-indigo-100 text-indigo-600 p-3 rounded-lg inline-block mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold mb-3">Org Design</h3>
-            <p className="text-gray-600 mb-4">
-              Visualize and optimize your organizational structure based on skills distribution.
-            </p>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start"><span className="text-indigo-600 mr-2">•</span>Reporting line visualization</li>
-              <li className="flex items-start"><span className="text-indigo-600 mr-2">•</span>Team composition planning</li>
-              <li className="flex items-start"><span className="text-indigo-600 mr-2">•</span>Role requirement mapping</li>
-            </ul>
-          </div>
+                {/* Content */}
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {feature.description}
+                </p>
 
-          <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md">
-            <div className="bg-purple-100 text-purple-600 p-3 rounded-lg inline-block mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
+                {/* Feature list */}
+                <ul className="space-y-3">
+                  {feature.features.map((item, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-700">
+                      <svg className={`w-4 h-4 text-${feature.color}-500 mr-3 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-3">Skills Management</h3>
-            <p className="text-gray-600 mb-4">
-              Track, develop, and manage skills across your entire organization.
-            </p>
-            <ul className="space-y-2 text-gray-600">
-              <li className="flex items-start"><span className="text-purple-600 mr-2">•</span>Skill development tracking</li>
-              <li className="flex items-start"><span className="text-purple-600 mr-2">•</span>Learning path creation</li>
-              <li className="flex items-start"><span className="text-purple-600 mr-2">•</span>Progress reporting</li>
-            </ul>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <span>Explore All Features</span>
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
           </div>
         </div>
       </div>
